@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="x-ua-compatible" content="ie=edge" />
+<title>Table Demo | Knockout.js</title>
+<link rel="stylesheet" href="./stylesheets/application.css" />
+</head>
+<body>
+
+
+
+<div class="scroll" id="main-scroll">
+  <table class="table-data" id="main-table">
+    <colgroup>
+      <col />
+      <col />
+      <col />
+      <col />
+    </colgroup>
+    <thead>
+      <tr>
+        <th scope="col" data-key="first_name">
+          <div class="cell">
+            <a href="#">First Name</a>
+          </div>
+        </th>
+        <th scope="col" data-key="last_name">
+          <div class="cell">
+            <a href="#">Last Name</a>
+          </div>
+        </th>
+        <th scope="col" data-key="character_first_name">
+          <div class="cell">
+            <a href="#">Character First Name</a>
+          </div>
+        </th>
+        <th scope="col" data-key="character_last_name">
+          <div class="cell">
+            <a href="#">Character Last Name</a>
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody data-bind="foreach: cast">
+      <tr>
+        <td data-th="First Name:">
+          <span data-bind="text: first_name || '&mdash;'"></span>
+        </td>
+        <td data-th="Last Name:">
+          <span data-bind="text: last_name || '&mdash;'"></span>
+        </td>
+        <td data-th="Character First Name:">
+          <span data-bind="text: character_first_name || '&mdash;'"></span>
+        </td>
+        <td data-th="Character Last Name:">
+          <span data-bind="text: character_last_name || '&mdash;'"></span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- /#wrapper -->
+
+
+
+<!-- Fake Data -->
+<script src="./json/cast.js"></script>
+
+
+
+<!-- Actual JavaScript -->
+<script src="./javascripts/jquery.js"></script>
+<script src="./javascripts/knockout.js"></script>
+<script src="./javascripts/application.js"></script>
+
+
+
+</body>
+</html>

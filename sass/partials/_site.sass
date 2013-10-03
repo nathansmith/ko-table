@@ -1,0 +1,136 @@
+// `Basic HTML
+//----------------------------------------------------------------------------------------------------
+
+html
+  +mq($media-desktop-min)
+    overflow: hidden
+
+body
+  background: #ccc
+  color: #333
+  font-size: $font-size-body
+
+  +mq($media-desktop-min)
+    background: #fff
+
+// `Wrapper
+//----------------------------------------------------------------------------------------------------
+
+.scroll
+  padding: 20px 20px 1px
+
+  +mq($media-desktop-min)
+    padding: 0
+    overflow-y: scroll
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+
+// `Data Table
+//----------------------------------------------------------------------------------------------------
+
+.table-data
+  margin-bottom: 0
+  width: 100%
+
++mq($media-desktop-min)
+  .table-data col:nth-child(even)
+    background: #f9f9f9
+
+.table-data td
+  padding: 10px 20px
+
+.table-data thead th
+  +gradient(#666, #333)
+  white-space: nowrap
+
+  &.on
+    +gradient(#444, #111)
+
+.table-data thead div
+  overflow: hidden
+  text-overflow: ellipsis
+
+.table-data thead a
+  color: #fff
+  display: block
+  padding: 10px 20px
+  text-decoration: none
+  text-shadow: #000 0 -1px 0
+
+  &:hover
+    text-decoration: underline
+
+.table-data tbody td
+  border-top: 1px solid #ddd
+
+.table-data tbody span[data-bind]
+  font-size: 20px
+
+  +mq($media-desktop-min)
+    font-size: $font-size-body
+
+//
+// For mobile
+//
+@media screen and (max-width: $media-mobile-max)
+  .table-data,
+  .table-data caption,
+  .table-data tbody,
+  .table-data tfoot,
+  .table-data tr,
+  .table-data th,
+  .table-data td
+    display: block
+
+  .table-data thead,
+  .table-data colgroup
+    display: none
+
+  .table-data caption,
+  .table-data tr
+    margin-bottom: 20px
+
+  .table-data tbody tr
+    +border-radius(4px)
+    +box-shadow(rgba(#000, 0.5) 0 1px 2px 0)
+    background: #fff
+    overflow: hidden
+    padding: 20px 10px 0
+
+  .table-data tbody td
+    +box-sizing(border-box)
+    border: 0 !important
+    float: left
+    margin-bottom: 20px
+    padding: 0 10px
+    width: 50%
+
+    &:nth-child(odd)
+      clear: left
+
+  .table-data td[data-th]:before
+    content: attr(data-th)
+    color: #999
+    display: block
+    font-size: $font-size-body
+
+  .table-data tfoot td
+    padding-top: 0
+
+// `Pinned Table Header
+//----------------------------------------------------------------------------------------------------
+
+.table-data-pinned
+  position: absolute
+  top: 0
+  left: 0
+  z-index: 1
+
+.table-data thead
+  visibility: hidden
+
+.table-data-pinned .table-data thead
+  visibility: visible

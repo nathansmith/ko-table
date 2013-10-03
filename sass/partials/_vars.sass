@@ -1,0 +1,38 @@
+// `Variables
+//----------------------------------------------------------------------------------------------------
+
+$ie8-support: false !default
+
+$media-mobile-max: 767px
+$media-desktop-min: 768px
+
+$font-size-body: 13px
+$font-stack: "Helvetica Neue", Arial, "Liberation Sans", FreeSans, sans-serif
+
+// `Media Query Helper
+//----------------------------------------------------------------------------------------------------
+
+=mq($width)
+  @if $ie8-support
+    @content
+
+  @else
+    @media screen and (min-width: $width)
+      @content
+
+// `Gradient
+//----------------------------------------------------------------------------------------------------
+
+=gradient($start, $end)
+  background-color: mix($start, $end)
+  +background-image(linear-gradient($start, $end))
+
+// `Positioning
+//----------------------------------------------------------------------------------------------------
+
+=absolute
+  position: absolute
+  top: auto
+  left: auto
+  right: auto
+  bottom: auto
