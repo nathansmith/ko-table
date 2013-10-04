@@ -10,6 +10,9 @@ body
   color: #333
   font-size: $font-size-body
 
+  @if $ie8-support
+    min-width: 1000px
+
   +mq($media-desktop-min)
     background: #fff
 
@@ -127,7 +130,6 @@ body
   position: absolute
   top: 0
   left: 0
-  z-index: 1
 
 .table-data thead
   visibility: hidden

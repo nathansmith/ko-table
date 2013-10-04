@@ -16,9 +16,6 @@ var APP = (function($, window, document, undefined) {
   var on = 'on';
   var dot_on = '.' + on;
 
-  // Fake data
-  var json_data;
-
   // Safely log things, if need be
   function log() {
     if (console && typeof console.log === 'function') {
@@ -105,7 +102,7 @@ var APP = (function($, window, document, undefined) {
 
           th.addClass(on).attr('data-sort', dir);
           th_other.removeClass(on).removeAttr('data-sort');
-          json_data.sort_by(key, reverse);
+          APP.data.sort_by(key, reverse);
         });
       },
       // APP.window_resize
@@ -130,8 +127,8 @@ var APP = (function($, window, document, undefined) {
         var self = this;
 
         // The CAST_JSON variable comes from "/json/cast.js"
-        json_data = ko.observableArray(CAST_JSON);
-        self.cast = json_data;
+        APP.data = APP.data || ko.observableArray(CAST_JSON);
+        self.cast = APP.data;
       }
     },
     util: {
@@ -181,7 +178,7 @@ var APP = (function($, window, document, undefined) {
         // If this exists already, exit
         if (!div.length) {
           div = $('<div class="table-data-pinned"></div>');
-          div.append(clone).insertBefore(scroll);
+          div.append(clone).insertAfter(scroll);
         }
 
         div.css({
