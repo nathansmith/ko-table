@@ -123,8 +123,9 @@ var APP = (function($, window, document, undefined) {
         });
       },
     },
-    // APP.view_models
+    // APP.models
     models: {
+      // APP.models.cast_view_model
       cast_view_model: function() {
         var self = this;
 
