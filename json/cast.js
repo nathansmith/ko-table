@@ -325,14 +325,6 @@ var CAST_JSON = [
     "character_first_name": "Lawrence",
     "character_last_name": ""
   },
-
-
-
-
-
-
-
-
   {
     "first_name": "Darlene",
     "last_name": "Hunt",
