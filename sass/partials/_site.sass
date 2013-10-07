@@ -127,9 +127,13 @@ body
 //----------------------------------------------------------------------------------------------------
 
 .table-data-pinned
+  display: none
   position: absolute
   top: 0
   left: 0
+
+  +mq($media-desktop-min)
+    display: block
 
 .table-data thead
   visibility: hidden

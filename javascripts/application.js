@@ -141,25 +141,43 @@ var APP = (function($, window, document, undefined) {
           return;
         }
 
-        var clone, thead, div;
         var c = $('#table-data-clone');
+        var div = $('.table-data-pinned');
         var th_list = [];
+        var clone, thead;
 
+        // Does the cloned area already exist?
         if (c.length) {
+          // Exit, if not visible
+          if (!c.is(':visible')) {
+            return;
+          }
+
+          // Use it, if it exists
           clone = c;
         }
+        // If not, create it
         else {
-          thead = table.find('thead').clone();
+          thead = table.find('thead');
+
+          // Exit, if not visible
+          if (!thead.is(':visible')) {
+            return;
+          }
+
+          thead = thead.clone();
           clone = $('<table id="table-data-clone" class="table-data" />');
           clone.append(thead);
         }
 
+        // Extract the width of each cell
         table.find('thead th .cell').each(function() {
           var el = $(this);
           var width = el.css('width');
           th_list.push(width);
         });
 
+        // Apply the width of each cell
         clone.find('thead th .cell').each(function(i) {
           var el = $(this);
 
@@ -173,14 +191,13 @@ var APP = (function($, window, document, undefined) {
           clone.find(dot_on).removeClass(on);
         }
 
-        div = $('.table-data-pinned');
-
-        // If this exists already, exit
+        // If <div> doesn't exist, create it
         if (!div.length) {
           div = $('<div class="table-data-pinned"></div>');
           div.append(clone).insertAfter(scroll);
         }
 
+        // Match the table width
         div.css({
           width: width
         });
@@ -188,5 +205,5 @@ var APP = (function($, window, document, undefined) {
     }
   };
 
-// Parameters: Zepto/jQuery, window, document.
+// Parameters: jQuery, window, document.
 })(jQuery, this, this.document);
