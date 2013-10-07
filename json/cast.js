@@ -1,5 +1,6 @@
 // In a real app, this would be fetched via Ajax request.
-// But for the purposes of this demo, are hard-coded here.
+// For the purposes of this demo, the JSON is hard-coded.
+
 var CAST_JSON = [
   {
     "first_name": "Amy",
