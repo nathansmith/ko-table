@@ -126,7 +126,7 @@ var APP = (function($, window, document, undefined) {
       table_view_model: function() {
         var self = this;
 
-        // The DATA_JSON variable comes from "/json/data.js"
+        // This data comes from "/json/data.js"
         APP.data = APP.data || ko.observableArray(DATA_JSON);
         self.data = APP.data;
       }
