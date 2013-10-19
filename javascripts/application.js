@@ -1,6 +1,6 @@
 // JSLint settings:
 /*global
-  CAST_JSON,
+  DATA_JSON,
   console,
   jQuery,
   ko
@@ -75,7 +75,7 @@ var APP = (function($, window, document, undefined) {
       },
       // APP.init.render_table
       render_table: function(json) {
-        var model = new APP.models.cast_view_model();
+        var model = new APP.models.table_view_model();
         ko.applyBindings(model);
         APP.util.table_head();
       },
@@ -122,13 +122,13 @@ var APP = (function($, window, document, undefined) {
     },
     // APP.models
     models: {
-      // APP.models.cast_view_model
-      cast_view_model: function() {
+      // APP.models.table_view_model
+      table_view_model: function() {
         var self = this;
 
-        // The CAST_JSON variable comes from "/json/cast.js"
-        APP.data = APP.data || ko.observableArray(CAST_JSON);
-        self.cast = APP.data;
+        // The DATA_JSON variable comes from "/json/data.js"
+        APP.data = APP.data || ko.observableArray(DATA_JSON);
+        self.data = APP.data;
       }
     },
     util: {
